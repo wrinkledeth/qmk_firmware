@@ -22,17 +22,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_GRV , KC_1  ,KC_2   , KC_3  , KC_4  , KC_5  ,            KC_6   , KC_7  , KC_8  , KC_9  , KC_0  ,KC_MINS,
         KC_ESC , KC_Q  ,KC_W   , KC_F  , KC_P  , KC_B  ,            KC_J   , KC_L  , KC_U  , KC_Y  , KC_SCLN ,KC_BSLS,
         KC_TAB , KC_A  ,KC_R   , KC_S  , KC_T  , KC_G  ,            KC_M   , KC_N  , KC_E  , KC_I  ,KC_O, KC_QUOT,
-        KC_LSFT, KC_Z  ,KC_X   , KC_C  , KC_D  , KC_V  ,            KC_K   , KC_H  ,KC_COMM, KC_DOT,KC_SLSH,KC_EQL,
-        RAISE, KC_LCTL , KC_LSFT , KC_LEFT,KC_RGHT,KC_A,           KC_B , KC_DOWN  ,KC_UP,KC_LBRC,KC_RBRC,KC_C,
-        // 1 x 4 3 2 5              //2 x 9 8 7 0[[[[[/]]]]] [[]]i....iiii
-                                        // Index  1    2       3        4     5       6     7     8     9        10
-                                    // Mapping    F    C       D        J     I       L     E     K     A        G        
-                                            
-                                    KC_5,KC_LCTL,KC_LGUI,           KC_8, KC_ENT, KC_0, 
-                                                    KC_PSCR,           KC_DEL, 
-                                                    KC_SPC ,        KC_BSPC, 
-                                                    KC_LALT,        KC_RSHIFT
-   
+        KC_0  , KC_Z  ,KC_X   , KC_C  , KC_D  , KC_V  ,             KC_K   , KC_H  ,KC_COMM, KC_DOT,KC_SLSH,KC_EQL,
+        RAISE,  KC_LGUI, KC_1, KC_LEFT, KC_RGHT,_______,           _______ , KC_UP ,KC_DOWN,KC_LBRC,KC_RBRC,RAISE,
+                                LCTL(KC_SPC), KC_LCTL,KC_4,                 KC_5, KC_ENT,KC_DEL, 
+                                                KC_7,               KC_8,
+                                                KC_SPC,             KC_BSPC, 
+                                                KC_LALT,            KC_RSHIFT   
+                            // LSA(kc): shift + alt 
+    ),  
+    [_RAISE] = LAYOUT_6x6(
+        KC_F12 ,KC_F1  ,KC_F2  ,KC_F3  ,KC_F4  ,KC_F5  ,        KC_F6  ,KC_F7  ,KC_F8  ,KC_F9  ,KC_F10 ,KC_F11 ,
+        RESET,_______,_______,_______,KC_PSCR,_______,        _______,_______,KC_PGUP,_______,_______,_______,
+        _______,_______,_______,_______,_______,_______,        KC_HOME,KC_LEFT,KC_DOWN,KC_UP,KC_RIGHT,KC_END,
+        _______,_______,_______,_______,_______,_______,        _______,KC_PGUP,KC_PGDOWN,_______,_______,_______,
+        _______,_______,_______,_______,_______,_______,        _______,_______,_______,_______,_______,_______,
+                                _______,_______,_______,        _______,_______,_______,
+                                                _______,        _______,
+                                                KC_LSFT,        _______,
+                                                _______,        _______
     ),
     [_LOWER] = LAYOUT_6x6(
         _______,KC_F1  ,KC_F2  ,KC_F3  ,KC_F4  ,KC_F5  ,                                       KC_F6  ,KC_F7  ,KC_F8  ,KC_F9  ,KC_F10 ,KC_F11 ,
@@ -44,17 +51,5 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                 _______,       _______,
                                                                 _______,       _______,
                                                                 _______,       _______
-    ),
-    [_RAISE] = LAYOUT_6x6(
-
-
-
-        KC_F12 ,KC_F1  ,KC_F2  ,KC_F3  ,KC_F4  ,KC_F5  ,        KC_F6  ,KC_F7  ,KC_F8  ,KC_F9  ,KC_F10 ,KC_F11 ,
-        _______,_______,_______,_______,_______,_______,        _______,_______,KC_PGUP,_______,_______,_______,
-        _______,_______,_______,_______,_______,_______,        KC_HOME,KC_LEFT,KC_DOWN,KC_UP,KC_RIGHT,KC_END,
-        _______,_______,_______,_______,_______,_______,        _______,_______,KC_PGDOWN,_______,_______,_______,
-        _______,_______,_______,_______,_______,_______,         _______,_______,_______,_______,_______,RESET,
-                _______,_______,_______,_______,_______,         _______,_______,_______,_______,_______,
-                                                _______,        _______
     ),
 };
