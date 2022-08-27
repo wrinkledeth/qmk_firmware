@@ -7,7 +7,6 @@
 #define RAISE MO(_RAISE)
 #define LOWER MO(_LOWER)
 
-#define TAB MT(LALT(KC_TAB), LALT(LCTL(KC_TAB)))
 // https://github.com/qmk/qmk_firmware/blob/master/docs/feature_advanced_keycodes.md                    
 // https://jayliu50.github.io/qmk-cheatsheet/
 // https://github.com/qmk/qmk_firmware/blob/master/docs/mod_tap.md
@@ -15,18 +14,22 @@
 // Tap Dance Declarations
 enum {
     TD_TAB,
-    // YOUR_TAPDANCE_2,
-    // ..., the rest of your tap dances
+    TD_QUIT,
+    // TD_RAISE
 };
 
 // Tap Dance Definitions
 qk_tap_dance_action_t tap_dance_actions[] = {
     // simple tap dance
-    [TD_TAB] = ACTION_TAP_DANCE_DOUBLE(LALT(KC_TAB), LCTL(LALT(KC_TAB))), // replace with your keycodes. BASIC codes only, no custom codes.
+    [TD_TAB] = ACTION_TAP_DANCE_DOUBLE(LALT(KC_TAB), LCTL(LALT(KC_TAB))), // alt tab / ctrl + alt + tab
+    [TD_QUIT] = ACTION_TAP_DANCE_DOUBLE(KC_ESC, LALT(KC_F4)), // esc / alt + f4 
+    // [TD_RAISE] = ACTION_TAP_DANCE_DOUBLE(MO(_RAISE), TG(_RAISE)), // esc / alt + f4 
+    // https://github.com/qmk/qmk_firmware/blob/master/docs/feature_tap_dance.md (ex 6)
 
     // complex tap dance function (to specify what happens when key is pressed 3+ times, for example). See full docs for how to define
     // [YOUR_TAPDANCE_2] = ACTION_TAP_DANCE_FN(your_function_name),iiii
 };
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_COLEMAK] = LAYOUT_6x6(
@@ -42,10 +45,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),              
     [_RAISE] = LAYOUT_6x6(            
         KC_F12 ,KC_F1  ,KC_F2  ,KC_F3  ,KC_F4  ,KC_F5  ,                        KC_F6  ,KC_F7  ,KC_F8  ,KC_F9  ,KC_F10 ,KC_F11 ,
-        LALT(KC_F4),_______,_______,_______,KC_PSCR,_______,                    _______,_______,KC_PGUP,_______,_______,_______,
+        TD(TD_QUIT),_______,_______,_______,KC_PSCR,_______,                    _______,_______,KC_PGUP,_______,_______,_______,
         TD(TD_TAB),KC_LGUI,KC_LALT,KC_LSFT,KC_LCTL,_______,                     KC_HOME,KC_LEFT,KC_DOWN,KC_UP,KC_RIGHT,KC_END,
         _______,_______,_______,_______,_______,LALT(LCTL(KC_V)),               _______,KC_PGDOWN,_______,_______,_______,_______,
-        _______,_______,_______,KC_UP ,KC_DOWN,_______,                         _______,_______,_______,_______,_______,_______,
+        _______,_______,_______,LCTL(KC_PGUP) ,LCTL(KC_PGDOWN),_______,         _______,_______,_______,_______,_______,_______,
                                 _______,_______,_______,                        _______,_______,_______,
                                                 _______,                        _______,
                                                 KC_LSFT,                        _______,    
