@@ -23,7 +23,8 @@ qk_tap_dance_action_t tap_dance_actions[] = {
     // simple tap dance
     [TD_TAB] = ACTION_TAP_DANCE_DOUBLE(LALT(KC_TAB), LCTL(LALT(KC_TAB))), // alt tab / ctrl + alt + tab
     [TD_QUIT] = ACTION_TAP_DANCE_DOUBLE(KC_ESC, LALT(KC_F4)), // esc / alt + f4 
-    // [TD_RAISE] = ACTION_TAP_DANCE_DOUBLE(MO(_RAISE), TG(_RAISE)), // esc / alt + f4 
+    // [TD_RAISE] = ACTION_TAP_DANCE_DOUBLE(MO(_RAISE), TG(_RAISE)), 
+    // To get Tap Dance Raise to work you would need to do this: 
     // https://github.com/qmk/qmk_firmware/blob/master/docs/feature_tap_dance.md (ex 6)
 
     // complex tap dance function (to specify what happens when key is pressed 3+ times, for example). See full docs for how to define
