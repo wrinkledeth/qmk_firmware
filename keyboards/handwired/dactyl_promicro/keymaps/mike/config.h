@@ -23,6 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define TAPPING_TERM 200
 
+#define COMBO_COUNT 8
 
 // #define MASTER_RIGHT
 //#define EE_HANDS

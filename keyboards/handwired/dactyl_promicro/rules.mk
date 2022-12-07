@@ -22,3 +22,5 @@ SPLIT_KEYBOARD = yes
 # Tap dance
 TAP_DANCE_ENABLE = yes
 
+# Combos
+COMBO_ENABLE = yes
